@@ -1,6 +1,6 @@
 package alurat4.conversor.model;
 
-public class Moeda {
+public class Moedas {
 String code;
 String codein;
 String name;
