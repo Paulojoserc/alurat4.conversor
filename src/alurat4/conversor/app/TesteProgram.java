@@ -17,9 +17,11 @@ public class TesteProgram {
 		CotacaoMoedaService cms = new CotacaoMoedaService();
 		System.out.println("Digite a opção escolhida");
 		String conversaoMoedas = sc.nextLine();
-		if(conversaoMoedas.equalsIgnoreCase("BRL-USD")){
+		if(!conversaoMoedas.equalsIgnoreCase("")){
 			Moedas moedas = cms.buscaCotacao(conversaoMoedas);
 			System.out.println(moedas.toString()); 
+		}else {
+			System.out.println("Moeda não informada");
 		}
 		
 		sc.close();

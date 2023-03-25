@@ -1,23 +1,25 @@
 package alurat4.conversor.model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Moedas {
 String code;
 String codein;
 String name;
 double bid;
 
-public String getCodigoMoedaEntrada() {
+public String getCode() {
     return code;
 }
 
-public String getCodigoMoedaSaida() {
+public String getCodein() {
     return codein;
 }
 
 public String getName() {
     return name;
 }
-public double getValor() {
+public double getBid() {
     return bid;
 }
 
