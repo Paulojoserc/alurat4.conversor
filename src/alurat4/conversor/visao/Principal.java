@@ -49,7 +49,7 @@ public class Principal extends JFrame {
 
 		setContentPane(contentPane);
 		
-		JLabel lblTitulo = new JLabel("Sistema de convers\u00E3o");
+		JLabel lblTitulo = new JLabel("Sistemas de convers\u00E3o");
 		lblTitulo.setFont(new Font("Verdana", Font.BOLD, 18));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		
