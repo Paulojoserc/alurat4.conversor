@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import java.awt.FlowLayout;
 import java.awt.Color;
 
+@SuppressWarnings("serial")
 public class converteMoeda extends JFrame {
 
 	private JPanel contentPane;
