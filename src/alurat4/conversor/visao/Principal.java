@@ -12,6 +12,8 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Principal extends JFrame {
 
@@ -53,25 +55,33 @@ public class Principal extends JFrame {
 		lblTitulo.setFont(new Font("Verdana", Font.BOLD, 18));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JButton btnNewButton = new JButton("New button");
+		JButton btnCotacaoMoeda = new JButton("Cambio ");
+		btnCotacaoMoeda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Cambio cambio = new Cambio();
+				cambio.setVisible(true);
+			}
+		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(46)
-					.addComponent(btnNewButton))
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
 					.addGap(136)
 					.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
 					.addGap(116))
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addGap(45)
+					.addComponent(btnCotacaoMoeda, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGap(408))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblTitulo, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
-					.addGap(165)
-					.addComponent(btnNewButton))
+					.addGap(163)
+					.addComponent(btnCotacaoMoeda)
+					.addGap(183))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
