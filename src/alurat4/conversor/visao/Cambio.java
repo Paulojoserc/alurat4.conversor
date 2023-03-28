@@ -1,23 +1,26 @@
 package alurat4.conversor.visao;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.awt.Font;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.border.EmptyBorder;
+
+import alurat4.conversor.model.Moedas;
+import alurat4.conversor.service.CotacaoMoedaService;
 
 public class Cambio extends JFrame {
 
@@ -30,6 +33,7 @@ public class Cambio extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -44,8 +48,11 @@ public class Cambio extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws Throwable 
 	 */
-	public Cambio() {
+	public Cambio() throws Throwable {
+		CotacaoMoedaService cms = new CotacaoMoedaService();
+		Moedas moedas = cms.buscaCotacao("");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Cambio.class.getResource("/img/cambio.png")));
 		setTitle("Cambio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
