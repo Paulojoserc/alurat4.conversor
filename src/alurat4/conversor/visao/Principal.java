@@ -14,6 +14,8 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 
 public class Principal extends JFrame {
 
@@ -43,20 +45,23 @@ public class Principal extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Principal.class.getResource("/img/home.png")));
 		setTitle("Tela Principal");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 550, 480);
+		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		
-		JLabel lblTitulo = new JLabel("Sistemas de convers\u00E3o");
+		JLabel lblTitulo = new JLabel("Sistemas de cambio");
 		lblTitulo.setFont(new Font("Verdana", Font.BOLD, 18));
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JButton btnCotacaoMoeda = new JButton("Cambio ");
-		btnCotacaoMoeda.addActionListener(new ActionListener() {
+		JButton btnCambio = new JButton("");
+		btnCambio.setToolTipText("Cambio");
+		btnCambio.setIcon(new ImageIcon(Principal.class.getResource("/img/btCambio.png")));
+		btnCambio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Cambio cambio = new Cambio();
 				cambio.setVisible(true);
@@ -71,7 +76,7 @@ public class Principal extends JFrame {
 					.addGap(116))
 				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
 					.addGap(45)
-					.addComponent(btnCotacaoMoeda, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(btnCambio, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 					.addGap(408))
 		);
 		gl_contentPane.setVerticalGroup(
@@ -80,7 +85,7 @@ public class Principal extends JFrame {
 					.addContainerGap()
 					.addComponent(lblTitulo, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
 					.addGap(163)
-					.addComponent(btnCotacaoMoeda)
+					.addComponent(btnCambio)
 					.addGap(183))
 		);
 		contentPane.setLayout(gl_contentPane);
