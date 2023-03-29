@@ -74,6 +74,7 @@ public class Cambio extends JFrame {
 		lblInformeValorDoCambio.setFont(new Font("Verdana", Font.PLAIN, 12));
 		
 		textFValor = new JTextField();
+		textFValor.setEditable(false);
 		textFValor.setColumns(10);
 		
 		textFMoedaDeSaida = new JTextField();
@@ -89,7 +90,9 @@ public class Cambio extends JFrame {
 				if(CBSelecaoMoedas.getSelectedItem().equals("<Selecione uma das opções>")){
 					JOptionPane.showMessageDialog(null,"Opção invalida selecione uma das opções abaixo", null , WIDTH);
 				}else if(CBSelecaoMoedas.getSelectedItem().equals("BRL-USD De Reais a Dólares.")) {
-					
+					textFValor.setEditable(true);
+				Double valor=	Double.parseDouble(textFValor.getText());
+				textFMoedaDeSaida = moedas.getBid();
 				}
 			}
 		});
