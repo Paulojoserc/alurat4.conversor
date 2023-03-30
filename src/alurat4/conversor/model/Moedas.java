@@ -19,7 +19,7 @@ public String getCodein() {
 public String getName() {
     return name;
 }
-public double getBid() {
+public Double getBid() {
     return bid;
 }
 

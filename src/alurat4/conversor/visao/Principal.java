@@ -63,7 +63,13 @@ public class Principal extends JFrame {
 		btnCambio.setIcon(new ImageIcon(Principal.class.getResource("/img/btCambio.png")));
 		btnCambio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Cambio cambio = new Cambio();
+				Cambio cambio = null;
+				try {
+					cambio = new Cambio();
+				} catch (Throwable e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				cambio.setVisible(true);
 			}
 		});
