@@ -19,11 +19,16 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
+import alurat4.conversor.model.AuxiliarCambio;
 import alurat4.conversor.model.Moedas;
 import alurat4.conversor.service.CotacaoMoedaService;
 
 public class Cambio extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textFValor;
 	private JTextField textFMoedaDeSaida;
@@ -54,9 +59,11 @@ public class Cambio extends JFrame {
 	 * 
 	 * @throws Throwable
 	 */
+	@SuppressWarnings("unchecked")
 	public Cambio() throws Throwable {
 		CotacaoMoedaService cms = new CotacaoMoedaService();
-		Moedas moedas = null;
+		AuxiliarCambio ac = new AuxiliarCambio();
+		Moedas moedas = new Moedas();
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Cambio.class.getResource("/img/cambio.png")));
 		setTitle("Cambio");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -101,22 +108,201 @@ public class Cambio extends JFrame {
 		btnExecutarConversao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (CBSelecaoMoedas.getSelectedItem().equals("<Selecione uma das opções>")) {
-					JOptionPane.showMessageDialog(null, "Opção invalida selecione uma das opções abaixo", null, WIDTH);
+					JOptionPane.showMessageDialog(null, "É preciso slecionar uma das opções abaixo", null, WIDTH);
 				} else if (CBSelecaoMoedas.getSelectedItem().equals("BRL-USD De Reais a Dólares.")) {
-					String conversaoMoedas = "BRL-USD";
-					
+					ac.pegaConversao = "BRL-USD";
+										
+					textFValor.setEditable(true);
 					try {
-						Moedas moedas = cms.buscaCotacao(conversaoMoedas);
-					} catch (Exception e1) {
+						textFMoedaDeSaida.setText(String.valueOf(ac.converVerdader()));
+					} catch (Throwable e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
-					textFValor.setEditable(true);
-					textFMoedaDeSaida.setText(String.valueOf(moedas.getBid()));
 					Double valor = Double.parseDouble(textFValor.getText());
-					textFTotalCambiado.setText(String.valueOf(valor * moedas.getBid()));
+					try {
+						textFTotalCambiado.setText(String.valueOf(valor * ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 
+				}else if (CBSelecaoMoedas.getSelectedItem().equals("BRL-EUR De Reais a Euros.")) {
+					ac.pegaConversao = "BRL-EUR";
+					
+					
+					textFValor.setEditable(true);
+					try {
+						textFMoedaDeSaida.setText(String.valueOf(ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					Double valor = Double.parseDouble(textFValor.getText());
+					try {
+						textFTotalCambiado.setText(String.valueOf(valor * ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+				}else if (CBSelecaoMoedas.getSelectedItem().equals("BRL-GBP De Reais a Libras Esterlinas.")) {
+					ac.pegaConversao = "BRL-GBP";
+					
+					
+					textFValor.setEditable(true);
+					try {
+						textFMoedaDeSaida.setText(String.valueOf(ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					Double valor = Double.parseDouble(textFValor.getText());
+					try {
+						textFTotalCambiado.setText(String.valueOf(valor * ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+				}else if (CBSelecaoMoedas.getSelectedItem().equals("BRL-ARS De Reais a Peso Argentino.")) {
+					ac.pegaConversao = "BRL-ARS";
+					
+					
+					textFValor.setEditable(true);
+					try {
+						textFMoedaDeSaida.setText(String.valueOf(ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					Double valor = Double.parseDouble(textFValor.getText());
+					try {
+						textFTotalCambiado.setText(String.valueOf(valor * ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+				}else if (CBSelecaoMoedas.getSelectedItem().equals("BRL-CLP De Reais a Peso Chileno.")) {
+					ac.pegaConversao = "BRL-CLP";
+					
+					
+					textFValor.setEditable(true);
+					try {
+						textFMoedaDeSaida.setText(String.valueOf(ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					Double valor = Double.parseDouble(textFValor.getText());
+					try {
+						textFTotalCambiado.setText(String.valueOf(valor * ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+				}else if (CBSelecaoMoedas.getSelectedItem().equals("USD-BRL De Dólares a Reais.")) {
+					ac.pegaConversao = "USD-BRL";
+					
+					
+					textFValor.setEditable(true);
+					try {
+						textFMoedaDeSaida.setText(String.valueOf(ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					Double valor = Double.parseDouble(textFValor.getText());
+					try {
+						textFTotalCambiado.setText(String.valueOf(valor * ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+				}else if (CBSelecaoMoedas.getSelectedItem().equals("EUR-BRL De Euros a Reais.")) {
+					ac.pegaConversao = "EUR-BRL";
+					
+					
+					textFValor.setEditable(true);
+					try {
+						textFMoedaDeSaida.setText(String.valueOf(ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					Double valor = Double.parseDouble(textFValor.getText());
+					try {
+						textFTotalCambiado.setText(String.valueOf(valor * ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+				}else if (CBSelecaoMoedas.getSelectedItem().equals("GBP-BRL De Libras Esterlinas a Reais.")) {
+					ac.pegaConversao = "GBP-BRL";
+					
+					
+					textFValor.setEditable(true);
+					try {
+						textFMoedaDeSaida.setText(String.valueOf(ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					Double valor = Double.parseDouble(textFValor.getText());
+					try {
+						textFTotalCambiado.setText(String.valueOf(valor * ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+				}else if (CBSelecaoMoedas.getSelectedItem().equals("ARS-BRL De Peso Argentino a Reais.")) {
+					ac.pegaConversao = "ARS-BRL";
+					
+					
+					textFValor.setEditable(true);
+					try {
+						textFMoedaDeSaida.setText(String.valueOf(ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					Double valor = Double.parseDouble(textFValor.getText());
+					try {
+						textFTotalCambiado.setText(String.valueOf(valor * ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+				}else  if (CBSelecaoMoedas.getSelectedItem().equals("CLP-BRL De Peso Chileno a Reais.")) {
+					ac.pegaConversao = "CLP-BRL";
+					
+					
+					textFValor.setEditable(true);
+					try {
+						textFMoedaDeSaida.setText(String.valueOf(ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					Double valor = Double.parseDouble(textFValor.getText());
+					try {
+						textFTotalCambiado.setText(String.valueOf(valor * ac.converVerdader()));
+					} catch (Throwable e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+					
+				}else {
+					JOptionPane.showMessageDialog(null, "Opção invalida. ", null, WIDTH);
 				}
+				
 			}
 		});
 		btnExecutarConversao.setFont(new Font("Verdana", Font.BOLD, 12));
@@ -189,5 +375,10 @@ public class Cambio extends JFrame {
 								GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)))
 				.addContainerGap(252, Short.MAX_VALUE)));
 		contentPane.setLayout(gl_contentPane);
+	}
+
+	protected char[] converVerdader() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

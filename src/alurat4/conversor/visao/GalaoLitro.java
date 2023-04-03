@@ -54,7 +54,7 @@ public class GalaoLitro extends JFrame {
 	public GalaoLitro() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(GalaoLitro.class.getResource("/img/galLitro.jpg")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 600, 480);
+		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
