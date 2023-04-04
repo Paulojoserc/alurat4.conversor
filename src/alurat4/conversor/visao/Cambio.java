@@ -108,7 +108,8 @@ public class Cambio extends JFrame {
 		btnExecutarConversao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (CBSelecaoMoedas.getSelectedItem().equals("<Selecione uma das opções>")) {
-					JOptionPane.showMessageDialog(null, "É preciso slecionar uma das opções abaixo", null, WIDTH);
+					JOptionPane.showMessageDialog(null, "É preciso slecionar uma das opções abaixo");
+					textFValor.requestFocus();
 				} else if (CBSelecaoMoedas.getSelectedItem().equals("BRL-USD De Reais a Dólares.")) {
 					ac.pegaConversao = "BRL-USD";
 										
@@ -314,66 +315,65 @@ public class Cambio extends JFrame {
 		textFTotalCambiado.setEditable(false);
 		textFTotalCambiado.setColumns(10);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup().addGap(33)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(33)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(lblValorTotalDa, GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+							.addGap(67)
+							.addComponent(textFTotalCambiado, GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+							.addGap(272))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_contentPane.createSequentialGroup()
-										.addComponent(lblValorTotalDa, GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-										.addGap(67)
-										.addComponent(
-												textFTotalCambiado, GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-										.addGap(272))
+									.addComponent(lblMoedaDeSaida, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addGap(67))
 								.addGroup(gl_contentPane.createSequentialGroup()
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_contentPane.createSequentialGroup()
-														.addComponent(lblMoedaDeSaida, GroupLayout.PREFERRED_SIZE,
-																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addGap(67))
-												.addGroup(gl_contentPane.createSequentialGroup()
-														.addComponent(lblEscolherConvercao, GroupLayout.DEFAULT_SIZE,
-																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addGap(34))
-												.addGroup(gl_contentPane.createSequentialGroup()
-														.addComponent(lblInformeValorDoCambio, GroupLayout.DEFAULT_SIZE,
-																GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addGap(89)))
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_contentPane.createSequentialGroup()
-														.addComponent(CBSelecaoMoedas, 0, 218, Short.MAX_VALUE)
-														.addGap(275))
-												.addGroup(gl_contentPane.createSequentialGroup()
-														.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-																.addComponent(textFMoedaDeSaida, Alignment.LEADING,
-																		GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-																.addComponent(textFValor, Alignment.LEADING,
-																		GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-																.addGroup(gl_contentPane.createSequentialGroup()
-																		.addPreferredGap(ComponentPlacement.RELATED)
-																		.addComponent(btnExecutarConversao,
-																				GroupLayout.PREFERRED_SIZE, 221,
-																				Short.MAX_VALUE)))
-														.addGap(272)))))));
-		gl_contentPane.setVerticalGroup(gl_contentPane.createParallelGroup(Alignment.LEADING).addGroup(gl_contentPane
-				.createSequentialGroup().addGap(21)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING).addComponent(lblEscolherConvercao)
-						.addComponent(CBSelecaoMoedas, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE))
-				.addGap(38)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE).addComponent(lblInformeValorDoCambio)
-						.addComponent(textFValor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE))
-				.addGap(38)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textFMoedaDeSaida, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
+									.addComponent(lblEscolherConvercao, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addGap(34))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(lblInformeValorDoCambio, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addGap(89)))
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(CBSelecaoMoedas, 0, 218, Short.MAX_VALUE)
+									.addGap(275))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addComponent(textFMoedaDeSaida, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+										.addComponent(textFValor, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(btnExecutarConversao, GroupLayout.PREFERRED_SIZE, 221, Short.MAX_VALUE)))
+									.addGap(272))))))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(21)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addComponent(lblEscolherConvercao)
+						.addComponent(CBSelecaoMoedas, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(38)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblInformeValorDoCambio)
+						.addComponent(textFValor, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(38)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textFMoedaDeSaida, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(lblMoedaDeSaida))
-				.addGap(42).addComponent(btnExecutarConversao).addGap(53)
-				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(textFTotalCambiado, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_contentPane.createSequentialGroup().addGap(1).addComponent(lblValorTotalDa,
-								GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)))
-				.addContainerGap(252, Short.MAX_VALUE)));
+					.addGap(42)
+					.addComponent(btnExecutarConversao)
+					.addGap(53)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(textFTotalCambiado, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(1)
+							.addComponent(lblValorTotalDa, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(252, Short.MAX_VALUE))
+		);
 		contentPane.setLayout(gl_contentPane);
 	}
 

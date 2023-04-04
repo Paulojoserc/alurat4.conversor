@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
 
 public class Principal extends JFrame {
 
@@ -58,6 +59,7 @@ public class Principal extends JFrame {
 		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JButton btnCambio = new JButton("");
+		btnCambio.setBackground(Color.LIGHT_GRAY);
 		btnCambio.setFont(new Font("Verdana", Font.PLAIN, 12));
 		btnCambio.setToolTipText("Cambio");
 		btnCambio.setIcon(new ImageIcon(Principal.class.getResource("/img/btCambio.png")));
@@ -75,6 +77,7 @@ public class Principal extends JFrame {
 		});
 		
 		JButton btnCambio_1 = new JButton("");
+		btnCambio_1.setBackground(new Color(0, 191, 255));
 		btnCambio_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GalaoLitro galaoLitro = null;
@@ -90,19 +93,41 @@ public class Principal extends JFrame {
 		btnCambio_1.setIcon(new ImageIcon(Principal.class.getResource("/img/btGalLitro.jpg")));
 		btnCambio_1.setToolTipText("Cambio");
 		btnCambio_1.setFont(new Font("Verdana", Font.PLAIN, 12));
+		
+		JButton btnSobre = new JButton("");
+		btnSobre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Sobre sobre = null;
+				try {
+					sobre = new Sobre();
+				} catch (Throwable e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				sobre.setVisible(true);
+			}
+		});
+		btnSobre.setSelectedIcon(new ImageIcon(Principal.class.getResource("/img/Sobre.jpg")));
+		btnSobre.setIcon(new ImageIcon(Principal.class.getResource("/img/Sobre.jpg")));
+		btnSobre.setToolTipText("Sobre");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(136)
-					.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
-					.addGap(116))
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(123)
 					.addComponent(btnCambio, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE)
 					.addGap(38)
 					.addComponent(btnCambio_1, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap(449, Short.MAX_VALUE))
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(588)
+							.addComponent(btnSobre, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(136)
+							.addComponent(lblTitulo, GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)))
+					.addGap(116))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -113,7 +138,9 @@ public class Principal extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(btnCambio)
 						.addComponent(btnCambio_1, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE))
-					.addGap(257))
+					.addGap(147)
+					.addComponent(btnSobre)
+					.addGap(41))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
