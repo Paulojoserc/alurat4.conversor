@@ -67,7 +67,7 @@ public class Cambio extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Cambio.class.getResource("/img/cambio.png")));
 		setTitle("Cambio");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 550, 320);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -318,13 +318,8 @@ public class Cambio extends JFrame {
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(33)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblValorTotalDa, GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-							.addGap(67)
-							.addComponent(textFTotalCambiado, GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-							.addGap(272))
+					.addContainerGap()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_contentPane.createSequentialGroup()
@@ -339,20 +334,23 @@ public class Cambio extends JFrame {
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addComponent(CBSelecaoMoedas, 0, 218, Short.MAX_VALUE)
-									.addGap(275))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-										.addComponent(textFMoedaDeSaida, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-										.addComponent(textFValor, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addComponent(btnExecutarConversao, GroupLayout.PREFERRED_SIZE, 221, Short.MAX_VALUE)))
-									.addGap(272))))))
+									.addGap(3))
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+									.addComponent(textFMoedaDeSaida, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+									.addComponent(textFValor, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(btnExecutarConversao, GroupLayout.PREFERRED_SIZE, 221, Short.MAX_VALUE)))))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(lblValorTotalDa, GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+							.addGap(67)
+							.addComponent(textFTotalCambiado, GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)))
+					.addGap(295))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(21)
+					.addGap(19)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addComponent(lblEscolherConvercao)
 						.addComponent(CBSelecaoMoedas, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
@@ -366,13 +364,13 @@ public class Cambio extends JFrame {
 						.addComponent(lblMoedaDeSaida))
 					.addGap(42)
 					.addComponent(btnExecutarConversao)
-					.addGap(53)
+					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(textFTotalCambiado, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(1)
 							.addComponent(lblValorTotalDa, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(252, Short.MAX_VALUE))
+					.addContainerGap(289, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}

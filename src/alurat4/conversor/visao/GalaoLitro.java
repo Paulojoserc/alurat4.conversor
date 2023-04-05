@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import alurat4.conversor.model.AuxiliarShowConfirmDialog;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JComboBox;
@@ -52,9 +55,10 @@ public class GalaoLitro extends JFrame {
 	 * Create the frame.
 	 */
 	public GalaoLitro() {
+		setTitle("Litro para Galão");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(GalaoLitro.class.getResource("/img/galLitro.jpg")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 700, 250);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -80,6 +84,9 @@ public class GalaoLitro extends JFrame {
 		JButton btnConverteUnidade = new JButton("Converte");
 		btnConverteUnidade.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				AuxiliarShowConfirmDialog au = new AuxiliarShowConfirmDialog();
+				
 				if(CBSelecaoUnidade.getSelectedItem().equals("<Selecione uma das opções>")) {
 				JOptionPane.showMessageDialog(null, "Opção invalida selecione uma das opções abaixo", null, WIDTH);
 				}else if(CBSelecaoUnidade.getSelectedItem().equals("MPG-KML Milhas por galão para Quilômetros por litro.")) {
@@ -102,6 +109,20 @@ public class GalaoLitro extends JFrame {
 		            df.setMinimumFractionDigits(2);
 					textFieldSaida.setText(String.valueOf(df.format(valorSaida)));
 				}
+				int i = JOptionPane.showConfirmDialog(
+				        null, 
+				        "Deseja continuar?"
+				        );
+				if(i == JOptionPane.YES_OPTION) {
+				    System.out.println("Clicou em Sim");
+				}
+				else if(i == JOptionPane.NO_OPTION) {
+				    System.out.println("Clicou em Não");
+				}
+				else if(i == JOptionPane.CANCEL_OPTION) {
+				    System.out.println("Clicou em Cancel");
+				}
+			
 			}
 		});
 		
@@ -124,52 +145,57 @@ public class GalaoLitro extends JFrame {
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblUnidadeEntrada, GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
-						.addComponent(lblValorTotal, GroupLayout.PREFERRED_SIZE, 296, Short.MAX_VALUE))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addComponent(btnConverteUnidade, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(textFieldSaida, GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblDeSaida, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(textFieldUnidadeEntrada, GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblDeEntrda)))
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addComponent(textFieldUnidadeEntraAbreviada, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
-						.addComponent(textFieldUnidadeSaidaAbreviada, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
-					.addGap(129))
+					.addContainerGap(453, Short.MAX_VALUE)
+					.addComponent(btnConverteUnidade, GroupLayout.PREFERRED_SIZE, 87, GroupLayout.PREFERRED_SIZE)
+					.addGap(234))
 				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-					.addGap(147)
-					.addComponent(CBSelecaoUnidade, 0, 350, Short.MAX_VALUE)
-					.addGap(148))
+					.addContainerGap()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(lblValorTotal, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addComponent(lblUnidadeEntrada, GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(textFieldSaida)
+						.addComponent(textFieldUnidadeEntrada, GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(44)
+							.addComponent(lblDeEntrda))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(45)
+							.addComponent(lblDeSaida, GroupLayout.PREFERRED_SIZE, 17, GroupLayout.PREFERRED_SIZE)))
+					.addGap(45)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(textFieldUnidadeSaidaAbreviada, 0, 0, Short.MAX_VALUE)
+						.addComponent(textFieldUnidadeEntraAbreviada, GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE))
+					.addContainerGap(157, Short.MAX_VALUE))
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addGap(70)
+					.addComponent(CBSelecaoUnidade, GroupLayout.PREFERRED_SIZE, 521, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(183, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
+					.addGap(22)
 					.addComponent(CBSelecaoUnidade, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(45)
+					.addGap(40)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblUnidadeEntrada)
 						.addComponent(textFieldUnidadeEntrada, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblDeEntrda)
-						.addComponent(textFieldUnidadeEntraAbreviada, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(textFieldUnidadeEntraAbreviada, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblDeEntrda))
 					.addGap(4)
 					.addComponent(btnConverteUnidade)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblValorTotal)
 						.addComponent(textFieldSaida, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblDeSaida, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textFieldUnidadeSaidaAbreviada, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(278, Short.MAX_VALUE))
+						.addComponent(textFieldUnidadeSaidaAbreviada, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblDeSaida, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(392, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
+	
 }
