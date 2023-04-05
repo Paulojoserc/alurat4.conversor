@@ -63,7 +63,7 @@ public class Cambio extends JFrame {
 	public Cambio() throws Throwable {
 		CotacaoMoedaService cms = new CotacaoMoedaService();
 		AuxiliarCambio ac = new AuxiliarCambio();
-		Moedas moedas = new Moedas();
+		//Moedas moedas = new Moedas();
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Cambio.class.getResource("/img/cambio.png")));
 		setTitle("Cambio");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
