@@ -1,30 +1,25 @@
 package alurat4.conversor.visao;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import alurat4.conversor.model.AuxiliarShowConfirmDialog;
-
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Font;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Toolkit;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.awt.event.ActionEvent;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.EmptyBorder;
 
 public class GalaoLitro extends JFrame {
 
@@ -84,9 +79,7 @@ public class GalaoLitro extends JFrame {
 		JButton btnConverteUnidade = new JButton("Converte");
 		btnConverteUnidade.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				AuxiliarShowConfirmDialog au = new AuxiliarShowConfirmDialog();
-				
+												
 				if(CBSelecaoUnidade.getSelectedItem().equals("<Selecione uma das opções>")) {
 				JOptionPane.showMessageDialog(null, "Opção invalida selecione uma das opções abaixo", null, WIDTH);
 				}else if(CBSelecaoUnidade.getSelectedItem().equals("MPG-KML Milhas por galão para Quilômetros por litro.")) {
