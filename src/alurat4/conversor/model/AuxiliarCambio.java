@@ -18,4 +18,11 @@ public class AuxiliarCambio {
 	return moedas.getBid();
 	
 }
+	public String limparGalaoLitro(){
+		String tex = null;
+		
+		return tex;
+	}
+	
+	
 }
