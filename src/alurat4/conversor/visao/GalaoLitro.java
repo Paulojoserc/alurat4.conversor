@@ -25,6 +25,7 @@ import Atxy2k.CustomTextField.RestrictedTextField;
 import alurat4.conversor.model.AuxiliarCambio;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.Dialog.ModalExclusionType;
 
 public class GalaoLitro extends JFrame {
 
@@ -55,10 +56,11 @@ public class GalaoLitro extends JFrame {
 	 * Create the frame.
 	 */
 	public GalaoLitro() {
-		setTitle("Litro para Galão");
+		setResizable(false);
+		setTitle("Unidades de medida de combustível");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(GalaoLitro.class.getResource("/img/galLitro.jpg")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 700, 250);
+		setBounds(100, 100, 700, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 

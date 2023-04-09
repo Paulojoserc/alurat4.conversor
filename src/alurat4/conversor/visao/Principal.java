@@ -123,7 +123,7 @@ public class Principal extends JFrame {
 				sobre.setVisible(true);
 			}
 		});
-		btnSobre.setSelectedIcon(new ImageIcon(Principal.class.getResource("/img/Sobre.jpg")));
+		btnSobre.setSelectedIcon(new ImageIcon(Principal.class.getResource("/img/Sobre Icone.jpg")));
 		btnSobre.setIcon(new ImageIcon(Principal.class.getResource("/img/Sobre Icone.jpg")));
 		btnSobre.setToolTipText("Sobre");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
